@@ -5,14 +5,30 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 
 // get all products
 router.get('/', (req, res) => {
-  // find all products
-  // be sure to include its associated Category and Tag data
+  Product.findAll({include: [Category, Tag]})
+    .then((dbProducts) => {
+      res.json(dbProducts);
+    })
+    .catch((err) => {
+      res.status(500).json({
+        msg: "oh no an error",
+        err,
+      });
+    });
 });
 
 // get one product
 router.get('/:id', (req, res) => {
-  // find a single product by its `id`
-  // be sure to include its associated Category and Tag data
+  Product.findByPk(req.params.id, {include: [Category, Tag]})
+    .then((dbProduct) => {
+      res.json(dbProduct);
+    })
+    .catch((err) => {
+      res.status(500).json({
+        msg: "oh no an error",
+        err,
+      });
+    });
 });
 
 // create new product
@@ -94,6 +110,24 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   // delete one product by its `id` value
+  Product.destroy({
+    where:{
+        id:req.params.id
+    }
+}).then((delProduct) => {
+    console.log('delProduct: ',delProduct)
+    if (delProduct) {
+      res.json(delProduct);
+    } else {
+      res.status(404).json({ msg: "no such product to delete" });
+    }
+  })
+  .catch((err) => {
+    res.status(500).json({
+      msg: "oh no an error!",
+      err,
+    });
+  });
 });
 
 module.exports = router;
