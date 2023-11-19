@@ -4,7 +4,7 @@
 
 ## Description
         
-This purpose of this project was to provide a back end program for an e commerce program. I was responsible for finishing the http routes on the server side. The program uses javascript and node  with an express server and a mysql database using sequelize. 
+This purpose of this project was to provide a back end program for an e commerce program. I was responsible for finishing the http routes on the server side. The program uses javascript and node with an express server and a mysql database using sequelize. 
 
 ## Table of Contents
 
