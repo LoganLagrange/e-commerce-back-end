@@ -25,6 +25,8 @@ Clone the repo from github, change the environment variables found in .envEXAMPL
         
 The program at this  point is only a back end, so it can be running using the command node server.js. You can then test the routes in insomnia or other similar program.
 
+[Walkthrough](https://drive.google.com/file/d/1j-wTe5xcilfC9hJGC2Nx32vrx10VHOTg/view)
+
 ## Contribution Guidelines
 
 N/A
